@@ -858,11 +858,11 @@ export default function CFA() {
               </a>
             </div>
             {/* Right: big logo */}
-            <div className="hidden md:flex flex-shrink-0 items-center justify-center" style={{ width: "380px" }}>
+            <div className="hidden md:flex flex-shrink-0 items-center justify-center" style={{ width: "480px" }}>
               <img
                 src={LOGO_URL}
                 alt="Cheer Florida"
-                style={{ width: "340px", maxWidth: "100%", filter: "drop-shadow(0 0 40px rgba(185,28,28,0.4)) drop-shadow(0 0 80px rgba(30,58,138,0.3))" }}
+                style={{ width: "460px", maxWidth: "100%", filter: "drop-shadow(0 0 40px rgba(185,28,28,0.4)) drop-shadow(0 0 80px rgba(30,58,138,0.3))" }}
               />
             </div>
           </div>
