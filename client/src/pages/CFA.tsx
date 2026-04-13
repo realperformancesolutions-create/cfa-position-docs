@@ -842,7 +842,7 @@ export default function CFA() {
             <div className="flex-1 py-16">
               <p className="text-xs tracking-[0.3em] mb-3 font-mono" style={{ color: RED }}>INTERNAL OPERATIONS DOCUMENT</p>
               <h1 className="font-bold tracking-wider text-white leading-none mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(3rem, 7vw, 6rem)" }}>
-                PROGRAM RESPONSIBILITIES
+                ROLE DEFINITIONS
               </h1>
               <h1 className="font-bold tracking-wider leading-none mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(3rem, 7vw, 6rem)", color: RED }}>
                 &amp; HIERARCHY
