@@ -828,31 +828,44 @@ export default function CFA() {
       </nav>
 
       {/* Hero */}
-      <div className="relative min-h-[55vh] flex items-end pt-14 overflow-hidden">
+      <div className="relative overflow-hidden" style={{ minHeight: "520px" }}>
         <div className="absolute inset-0">
           <img src={HERO_URL} alt="" className="w-full h-full object-cover opacity-40" />
           <div
             className="absolute inset-0"
-            style={{ background: "linear-gradient(to bottom, rgba(11,15,26,0.3) 0%, rgba(11,15,26,0.95) 100%)" }}
+            style={{ background: "linear-gradient(to right, rgba(11,15,26,0.97) 45%, rgba(11,15,26,0.55) 75%, rgba(11,15,26,0.15) 100%)" }}
           />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-14 w-full">
-          <p className="text-xs tracking-[0.3em] mb-3 text-red-400 font-mono">INTERNAL OPERATIONS DOCUMENT</p>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-wider text-white leading-none mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            PROGRAM RESPONSIBILITIES
-          </h1>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-wider leading-none mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif", color: RED }}>
-            & HIERARCHY
-          </h1>
-          <p className="text-white/50 text-sm mb-6">Cheer Florida All-Star Program — Staff Role & Accountability Guide</p>
-          <a
-            href={CFA_PDF_URL}
-            download
-            className="inline-flex items-center gap-2 text-xs tracking-[0.15em] px-5 py-2.5 text-white rounded-sm font-mono"
-            style={{ background: RED }}
-          >
-            <Download className="w-3.5 h-3.5" /> DOWNLOAD FULL DOCUMENT (PDF)
-          </a>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full flex items-center" style={{ minHeight: "520px" }}>
+          <div className="flex items-center justify-between w-full gap-8">
+            {/* Left: text */}
+            <div className="flex-1 py-16">
+              <p className="text-xs tracking-[0.3em] mb-3 font-mono" style={{ color: RED }}>INTERNAL OPERATIONS DOCUMENT</p>
+              <h1 className="font-bold tracking-wider text-white leading-none mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(3rem, 7vw, 6rem)" }}>
+                PROGRAM RESPONSIBILITIES
+              </h1>
+              <h1 className="font-bold tracking-wider leading-none mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(3rem, 7vw, 6rem)", color: RED }}>
+                &amp; HIERARCHY
+              </h1>
+              <p className="text-white/50 text-sm mb-6">Cheer Florida All-Star Program — Staff Role &amp; Accountability Guide</p>
+              <a
+                href={CFA_PDF_URL}
+                download
+                className="inline-flex items-center gap-2 text-xs tracking-[0.15em] px-5 py-2.5 text-white rounded-sm font-mono"
+                style={{ background: RED }}
+              >
+                <Download className="w-3.5 h-3.5" /> DOWNLOAD FULL DOCUMENT (PDF)
+              </a>
+            </div>
+            {/* Right: big logo */}
+            <div className="hidden md:flex flex-shrink-0 items-center justify-center" style={{ width: "380px" }}>
+              <img
+                src={LOGO_URL}
+                alt="Cheer Florida"
+                style={{ width: "340px", maxWidth: "100%", filter: "drop-shadow(0 0 40px rgba(185,28,28,0.4)) drop-shadow(0 0 80px rgba(30,58,138,0.3))" }}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
