@@ -1,340 +1,752 @@
 /* ============================================================
    CHEER FLORIDA ALL-STARS — POSITION AGREEMENTS & HIERARCHY
-   Design: Command Authority
-   Dark navy #0D1B2A, Crimson #C8102E, Gold #C9A84C, Bebas Neue + DM Sans
+   Design: Dark navy #0B0F1A, Crimson #B91C1C, Bebas Neue + DM Sans
+   Content: Matches Cheer_Florida_Program_Responsibilities PDF exactly
    ============================================================ */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Download, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 
 const CFA_PDF_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663270045816/EryPe9N36963woYHYBNvb9/Cheer_Florida_Program_Responsibilities_b003fca4.pdf";
-
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663270045816/EryPe9N36963woYHYBNvb9/cheer_florida_logo_840125e7.png";
-
 const HERO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663270045816/EryPe9N36963woYHYBNvb9/cfa-hero-v5_e760c270.jpg";
 
-// ── Data ──────────────────────────────────────────────────────────────────────
+const RED = "#B91C1C";
+const NAVY = "#1E3A8A";
 
 const roles = [
   {
-    id: "gtm-director",
-    code: "ROLE-01",
-    title: "GTM DIRECTOR",
-    subtitle: "Program Vision · System Architecture · Hiring Authority · Growth Strategy · Final Approval",
-    overview:
-      "The GTM (Go-To-Market) Director is the strategic architect of the Cheer Florida program. This role is responsible for program growth, system creation, high-level standards, and the long-term development of both athletes and staff. The GTM Director holds ultimate authority over program direction, hiring, and all operational frameworks, ensuring consistency and excellence across every team. Every director, every coach, and every athlete on the floor operates within the framework this role establishes.",
-    tagline: "The GTM Director does not manage the day-to-day — they build the systems that make the day-to-day possible.",
+    id: "gym-owners",
+    title: "GYM OWNERS",
+    subtitle: "Financial Authority · Business Strategy · Final Approval",
+    color: RED,
+    description:
+      "The Gym Owners hold final financial authority and business strategy oversight for Cheer Florida. Owners empower the Director of Program Development & Operations and program directors to make day-to-day and operational decisions, as they are the ones on the floor. Owners retain final approval on financial commitments, salaries, and major business decisions.",
     sections: [
       {
-        title: "DAILY TO DO",
+        title: "ONGOING RESPONSIBILITIES",
         items: [
-          "Review enrollment and lead generation metrics",
-          "Monitor overall gym culture and staff professionalism",
-          "Audit practice plans for alignment with program systems",
-          "Coach assigned teams",
-          "Review end-of-day reports from Admin Manager and All-Star Director",
-          "Address high-level parent escalations (only when escalated by All-Star Director)",
+          "Final approval on all salary decisions and compensation changes",
+          "Final approval on all hiring and termination decisions",
+          "Oversee overall financial health and budgeting of the gym",
+          "Review and approve major financial expenditures",
+          "Set overarching business goals and long-term vision",
+          "Maintain facility ownership and legal/insurance compliance",
         ],
       },
       {
-        title: "WEEKLY TO DO",
+        title: "DELEGATED TO PROGRAM DIRECTOR",
         items: [
-          "Lead Director-level strategy meeting (All-Star Director & Tumbling Director)",
-          "Review weekly KPI tracking (retention, progression, performance trends)",
-          "Evaluate coach training progress and system adherence",
-          "Plan upcoming staff education and training sessions",
-          "Review marketing and community outreach efforts",
-          "Audit program-wide communication for consistency and professionalism",
+          "Day-to-day operational decisions",
+          "Staff management and accountability",
+          "Program systems, curriculum, and scheduling",
+          "Athlete development and team placement decisions (subject to Owner final approval)",
+          "Coach hiring recommendations (subject to Owner final approval)",
         ],
       },
       {
-        title: "MONTHLY TO DO",
+        title: "MEETING REQUIREMENTS",
         items: [
-          "Conduct full program numbers review (classes, all-star, retention rates)",
-          "Lead full staff meeting and ongoing coach training",
-          "Review budget and financial health of the competitive program",
-          "Assess tumbling and flexibility program progress against benchmarks",
-          "Update long-term athlete development models based on current progress",
-        ],
-      },
-      {
-        title: "QUARTERLY TO DO",
-        items: [
-          "Conduct performance reviews for Director-level staff",
-          "Evaluate and update program systems (tryout structure, practice models)",
-          "Plan seasonal marketing pushes and enrollment drives",
-          "Review competitive success trends and adjust strategies",
-          "Track salaried employee thresholds and overall payroll efficiency",
-        ],
-      },
-      {
-        title: "SEMI-ANNUALLY TO DO",
-        items: [
-          "Finalize and publish tryout packets and program handbooks",
-          "Oversee major program transitions (tryouts, mid-season evaluations)",
-          "Conduct comprehensive staff evaluations",
-          "Set strategic goals for the upcoming 6-month cycle",
-        ],
-      },
-      {
-        title: "ANNUALLY TO DO",
-        items: [
-          "Complete final hiring decisions for all coaching and director staff",
-          "Set the overarching schedule philosophy for the season",
-          "Finalize choreography and music budgets and vendor selections",
-          "Update employee coaching eligibility and certification systems",
-          "Deliver annual 'State of the Program' presentation to staff",
-        ],
-      },
-      {
-        title: "ADDITIONAL RESPONSIBILITIES",
-        items: [
-          "Complete authority over all hiring and firing decisions",
-          "Final approval on all team placements and rosters",
-          "Final say on all program policies, schedules, and disciplinary actions",
-          "Creation and implementation of all standard operating procedures (SOPs)",
-          "Coaching teams as assigned",
-          "Select and schedule choreographers and music vendors",
-          "Plan and oversee stunt camps and specialty clinics",
+          "Attend mandatory Wednesday Upper Management Meeting (weekly, in-person required)",
+          "Receive monthly financial and program performance reports from Program Director",
+          "Participate in annual program planning and goal-setting sessions",
         ],
       },
     ],
-    autonomy: [
-      "All program-wide systems, policies, and operational frameworks",
-      "Final hiring, firing, and all formal disciplinary decisions",
-      "Final team placements, rosters, and competitive scheduling",
-      "Budget approval and major financial commitments",
-      "All program-wide communications and brand representation",
-      "Staff compensation, role changes, and performance reviews",
-      "Choreography and music vendor selection and scheduling",
+    owns: [
+      "Final say on all financial decisions and salary approvals",
+      "Final approval on all hiring and firing decisions",
+      "Final approval of all teams and team placements",
+      "Oversee all program budgets and financial health across all programs",
+      "USASF athlete registration and compliance management",
+      "Empower the Director of Program Development & Operations to run the gym operationally",
     ],
-    approval: [
-      "Major facility or lease decisions — deferred to Gym Ownership",
-      "Business-level financial decisions beyond program budget — Gym Ownership",
-      "Any decisions that affect the gym's legal standing or insurance — Ownership",
-    ],
+    requires: [],
+    requiresLabel: "",
   },
   {
-    id: "allstar-director",
-    code: "ROLE-02",
-    title: "ALL-STAR DIRECTOR",
-    subtitle: "Floor Operations · Coach Management · Parent Communication · Team Readiness",
-    overview:
-      "The All-Star Director is the operational leader of the competitive program. This role is responsible for the daily execution of practices, managing the coaching staff on the floor, handling direct parent communication, and ensuring teams are competition-ready. The All-Star Director takes the systems built by the GTM Director and makes them come alive in the gym. All major decisions require GTM Director approval.",
-    tagline: "The All-Star Director runs the floor. Every team, every practice, every coach — this role owns the daily execution.",
+    id: "program-director",
+    title: "DIRECTOR OF PROGRAM DEVELOPMENT & OPERATIONS",
+    subtitle: "Systems · Strategy · Staff Development · Culture · Final Operational Authority",
+    color: NAVY,
+    description:
+      "The Director of Program Development & Operations is the strategic architect and operational authority of Cheer Florida. This role designs and owns all program systems, drives staff development, sets the standard for athlete progression and culture, and holds final say on all operational decisions, once aligned with the Gym Owners. The Director is not managing daily floor logistics — the Director is building the systems, analyzing performance, and making the decisions that shape the entire program.",
     sections: [
       {
         title: "DAILY TO DO",
         items: [
-          "Ensure daily office check-in and staff attendance",
-          "Respond to direct parent and coach emails/messages",
-          "Submit end-of-day reports to GTM Director",
-          "Manage injury report follow-ups",
-          "Review and approve daily practice plans from coaches",
-          "Handle day-to-day parent meetings (escalate serious issues to GTM Director)",
-          "Conduct pre/post-practice coaching meetings",
-          "Monitor team and class attendance on the floor",
-          "Enforce gym rules, dress code, and behavioral standards",
+          "Approve and audit all practice plans before floor execution",
+          "Analyze end-of-day reports from ASD and Gym Manager to identify trends",
+          "Monitor the Cheer Florida Family Facebook page and engage as needed",
+          "Respond to all emails and calls within 24 hours",
+          "Coach 3–4 assigned teams",
+          "Handle all injury reports and medical follow-ups",
+          "Address escalated parent issues, athlete placement conversations, and staff escalations",
+          "Monitor gym culture, staff professionalism, and program standards",
         ],
       },
       {
         title: "WEEKLY TO DO",
         items: [
-          "Attend Director-level strategy meeting led by GTM Director",
-          "Lead operations meeting for the coaching staff",
-          "Ensure all competition readiness checks are completed",
-          "Review weekly practice flow and make real-time adjustments",
-          "Check in with Tumbling Director on team integration",
-          "Submit weekly staff performance notes to GTM Director",
+          "Host mandatory Wednesday Upper Management Meeting with Owners and Gym Manager (in-person required)",
+          "Meet with program leaders (ASD, Tumbling Director, Specialty Class leads) for weekly check-in",
+          "Assign coaching fines and write-ups as warranted",
+          "Review and audit program-wide communication for consistency",
         ],
       },
       {
         title: "MONTHLY TO DO",
         items: [
-          "Track and report Flyer Flex and specialized class attendance",
-          "Meet with Tumbling Director to review team tumbling progress",
-          "Review parent communication logs to ensure issues are resolved",
-          "Assess overall team morale and staff engagement",
-          "Report monthly team performance summary to GTM Director",
+          "Lead full monthly staff meeting — required attendance, owned by Director",
+          "Conduct full program numbers review: all-star, tumbling, flex, specialty, retention",
+          "Approve or deny all Tumbling program level-up and level-down requests",
+          "Review KPIs: retention, attendance trends, athlete progression, drop-off patterns",
+          "Plan upcoming staff education sessions and identify coaching gaps",
+          "Review marketing, enrollment, and community outreach efforts",
+          "C.I.P. rotation list review and salaried employee threshold tracking",
+          "Analyze athlete drop-off trends and use retention data to guide decisions",
         ],
       },
       {
         title: "QUARTERLY TO DO",
         items: [
-          "Track C.I.T. (Coach In Training) rotation and progress",
-          "Review team scoring trends from early competitions",
-          "Adjust practice schedules based on competition feedback",
-          "Assist GTM Director with staff performance reviews",
+          "Conduct performance reviews for all Director-level staff",
+          "Build or update individual coach development plans based on identified gaps",
+          "Review and update athlete progression standards across all programs",
+          "Plan seasonal marketing pushes and enrollment drives",
+          "Evaluate coach training progress and system adherence",
+          "Review competitive success trends and adjust program strategy",
         ],
       },
       {
         title: "SEMI-ANNUALLY TO DO",
         items: [
-          "Assist with mid-season evaluations and team adjustments",
-          "Provide input on employee reviews for coaching staff",
-          "Prepare gym for major showcases and events",
+          "Conduct comprehensive staff evaluations — in collaboration with Gym Owners",
+          "Oversee major program transitions and mid-season evaluations",
+          "Set strategic goals for the upcoming 6-month cycle",
+          "Finalize hiring recommendations for all coaching and director staff",
+          "Finalize choreography and music budgets — select and approve all vendors",
+          "Set the overarching schedule philosophy for the season",
         ],
       },
       {
         title: "ANNUALLY TO DO",
         items: [
-          "Assist with tryout execution and evaluations",
-          "Provide team placement recommendations to GTM Director (GTM has final approval)",
-          "Assist with choreography and camp scheduling execution",
+          "Build and implement tryout structure — set evaluation parameters and placement philosophy",
+          "Finalize and publish tryout packets and program handbooks",
+          "Build and own all program systems: practice planning, end-of-day reporting, flexibility, tumbling structure, specialty classes",
+          "Create and implement all standard operating procedures (SOPs)",
+          "Host annual staff training day — bring in guest speakers and outside experts",
+          "Deliver annual 'State of the Program' presentation to staff",
+          "Develop new programs: classes, clinics, and specialty offerings",
+          "Update employee coaching eligibility and certification systems",
+        ],
+      },
+    ],
+    owns: [
+      "All program systems: practice planning, reporting, flexibility, tumbling, specialty classes",
+      "Final approval on all practice plans before floor execution",
+      "Final approval or denial of all Tumbling level-up and level-down requests",
+      "Final attendance decisions — ASD tracks and enforces, Director decides",
+      "Staff development: weekly meetings, monthly full staff meetings, individual coaching plans",
+      "Athlete development models, progression standards, and team placement philosophy",
+      "Hiring recommendations for all coaching and director staff",
+      "All injury reports, medical follow-ups, and athlete health decisions",
+      "Escalated parent issues, athlete placement conversations, and staff escalations",
+      "Culture ownership: staff culture, athlete accountability, parent expectations",
+      "Choreography and music budget oversight — final vendor approval",
+      "Retention strategy and KPI analysis across all programs",
+      "Final say on all program policies, schedules, and disciplinary actions",
+    ],
+    requires: [
+      "Final salary decisions and any compensation changes for staff",
+      "Final hiring and termination decisions",
+      "Major financial expenditures beyond operational budget",
+      "Any legal, insurance, or facility-related commitments",
+      "Major business strategy changes or new program launches",
+    ],
+    requiresLabel: "REQUIRES OWNER APPROVAL — DO NOT PROCEED WITHOUT IT",
+  },
+  {
+    id: "gym-manager",
+    title: "GYM MANAGER",
+    subtitle: "Scheduling · Admin Operations · Communication · Floor Coaching",
+    color: NAVY,
+    description:
+      "The Gym Manager oversees the day-to-day administrative operations of Cheer Florida. This role handles scheduling, gym communications, pro-shop operations, and front-facing customer service. The Gym Manager also coaches assigned teams and works closely with the Program Director to ensure smooth operational flow.",
+    sections: [
+      {
+        title: "DAILY TO DO",
+        items: [
+          "Respond to gym emails and phone calls in a timely manner",
+          "Manage front desk operations and customer check-in",
+          "Address scheduling conflicts and day-to-day facility issues",
+          "Coach assigned teams",
+          "Ensure pro-shop is stocked and operational",
+          "Escalate unresolved issues to Program Director",
         ],
       },
       {
-        title: "ADDITIONAL RESPONSIBILITIES",
+        title: "WEEKLY TO DO",
         items: [
-          "Act as the primary point of contact for parents on day-to-day team issues",
-          "Manage the daily flow of the gym floor",
-          "Execute the systems and standards set by the GTM Director",
-          "Maintain competition readiness and athlete accountability",
+          "Attend Director-level strategy meeting",
+          "Review and manage the master gym schedule",
+          "Coordinate with program directors on scheduling needs",
+          "Submit weekly operations summary to Program Director",
+          "Know and report key metrics (attendance, enrollment, open slots)",
+        ],
+      },
+      {
+        title: "MONTHLY TO DO",
+        items: [
+          "Submit pro shop sales report to Program Director and Gym Owners",
+          "Review and update gym schedule for the upcoming month",
+          "Audit gym communications for response time and quality",
+          "Report on enrollment and open class availability",
+        ],
+      },
+      {
+        title: "EVENT / SEASONAL",
+        items: [
+          "Run pro-shop sales during showcases, winter events, and competitions",
+          "Coordinate facility setup and breakdown for gym events",
+          "Assist with tryout logistics and scheduling",
+          "Manage uniform and apparel orders as needed",
         ],
       },
     ],
-    autonomy: [
-      "Running daily practices and managing the floor flow",
-      "Directing coaches during practice and making real-time adjustments",
-      "Handling day-to-day parent communication and minor conflict resolution",
-      "Enforcing attendance, effort, and behavior standards for athletes",
-      "Holding coaches accountable to the daily schedule and practice plans",
-      "Submitting daily/weekly reports and updates to GTM Director",
+    owns: [
+      "Day-to-day gym scheduling and facility coordination",
+      "Responding to gym emails, calls, and general customer inquiries",
+      "Running pro-shop operations during events",
+      "Coaching assigned teams",
+      "Escalating unresolved scheduling or operational issues to Program Director",
     ],
-    approval: [
+    requires: [
+      "Making permanent changes to the master gym schedule",
+      "Committing to vendor orders or purchases beyond standard pro-shop restocking",
+      "Any communication sent on behalf of the program to parents or staff at large",
+      "Hiring, firing, or disciplinary actions involving any staff member",
+      "Overriding program director decisions on scheduling or operations",
+    ],
+    requiresLabel: "REQUIRES PROGRAM DIRECTOR APPROVAL — DO NOT PROCEED WITHOUT IT",
+  },
+  {
+    id: "all-star-director",
+    title: "ALL-STAR DIRECTOR",
+    subtitle: "Execution · Floor Operations · Staff Accountability · Half Year · Full Season Prep & Pre-Team Programs · Compliance",
+    color: RED,
+    description:
+      "The All-Star Director is the operational leader of the gym floor and the primary owner of the Half Year and Full Season Prep programs. This role is responsible for daily floor execution, staff accountability, athlete compliance, and the full growth, choreography, and development of the Half Year and Prep programs. The ASD ensures that the systems built by the Director of Program Development & Operations are executed with precision. The ASD coaches 3–4 teams, manages day-to-day parent and staff communication, and provides structured reports to the Director.",
+    sections: [
+      {
+        title: "HALF YEAR & PREP PROGRAMS — OWNERSHIP",
+        items: [
+          "Own and operate the Half Year and Full Season Prep programs end-to-end",
+          "Lead all growth, recruitment, and athlete retention for these programs",
+          "Own all choreography planning, execution, and choreographer coordination",
+          "Schedule all music production from the Program Director-approved vendor list",
+          "Develop and implement staff training specific to these programs",
+          "Manage team placements, crossovers, and roster decisions (Director approval required)",
+          "Own all parent communication for athletes in these programs",
+        ],
+      },
+      {
+        title: "DAILY TO DO",
+        items: [
+          "Own all day-to-day floor execution — manage and maintain the floor schedule",
+          "Direct coaches in real-time during practice; provide input and feedback on execution",
+          "Ensure Program Director-approved practice plans are being executed correctly",
+          "Hold coaches accountable: ensure practice plans are submitted, end-of-day reports are completed",
+          "Handle first-level corrections and staff accountability on the floor",
+          "Manage athlete attendance tracking — approve/deny based on Director standards",
+          "Handle day-to-day parent questions and initial staff conversations",
+          "Be present during any parent communication meetings involving coaches or the Program Director",
+          "Ensure attendance is taken and submitted by all coaches daily — no exceptions",
+          "Submit structured end-of-day report to Program Director",
+          "Coach 3–4 assigned teams",
+        ],
+      },
+      {
+        title: "WEEKLY TO DO",
+        items: [
+          "Attend Director-level strategy meeting — know team metrics, attendance, and floor performance",
+          "Submit weekly Flyer Flex attendance and completion report to Program Director",
+          "Track and enforce athlete benchmark completion",
+          "Verify athletes are rostered correctly across all teams",
+          "Double-check routine numbers to ensure no scoring issues",
+          "Confirm all legality videos are submitted and up to date",
+          "Manage USASF athlete and staff registration and compliance",
+          "Submit structured weekly floor performance report to Program Director",
+        ],
+      },
+      {
+        title: "MONTHLY TO DO",
+        items: [
+          "Submit structured monthly report to Program Director: attendance, floor performance, team morale, parent communication log",
+          "Provide input on employee reviews for coaching staff",
+          "Report Flyer Flex and specialized class attendance summary",
+          "Support tryout execution and floor management under Director leadership",
+          "Assess overall team morale and athlete engagement on the floor",
+          "Provide team placement recommendations to Program Director (Director has final approval)",
+        ],
+      },
+      {
+        title: "CHOREOGRAPHY & MUSIC DEADLINES",
+        items: [
+          "Schedule all music and choreography from the Program Director-approved vendor list only",
+          "All music and choreography must be finalized prior to team reveals — no exceptions",
+          "All teams must have music and choreography completed before first competition — non-negotiable",
+          "Submit full choreography and music scheduling timeline to Program Director at season start",
+        ],
+      },
+    ],
+    owns: [
+      "Full operational ownership of the Half Season and Show Team programs",
+      "All day-to-day floor execution, schedule management, and real-time coaching direction",
+      "Staff accountability: ensuring coaches submit plans, complete reports, and follow systems",
+      "First-level corrections and consequences for staff non-compliance",
+      "Athlete attendance tracking, management, and enforcement of Director-set standards",
+      "Active enforcement of Flyer Flex completion, benchmarks, and compliance requirements",
+      "Day-to-day parent communication and initial staff conversations",
+      "Structured daily and weekly reporting to Program Director",
+      "Athlete rostering verification and routine legality compliance",
+    ],
+    requires: [
+      "Practice plan approval — Director approves and audits; ASD ensures execution",
       "Final team placements, crossovers, or any roster changes",
+      "Attendance exceptions or final attendance decisions",
+      "Athlete placement, development, or progression conversations with parents",
       "Hiring, firing, or any formal disciplinary action involving staff",
       "Creating, changing, or overriding any program system or policy",
       "Finalizing competition schedules or committing to major budget items",
       "Any communication that affects the entire program or brand reputation",
-      "Responding to media, social media posts on behalf of the program, or press",
       "Offering or negotiating any staff compensation or role changes",
+      "Injury reports or medical follow-ups (Program Director manages these)",
     ],
+    requiresLabel: "REQUIRES PROGRAM DIRECTOR APPROVAL — DO NOT PROCEED WITHOUT IT",
+  },
+  {
+    id: "tumbling-director",
+    title: "TUMBLING DIRECTOR",
+    subtitle: "Curriculum · Staff Management · Athlete Progression · Parent Communication",
+    color: NAVY,
+    description:
+      "The Tumbling Director is responsible for developing and executing the tumbling curriculum under the direction of the Program Director. This role manages tumbling staff, runs classes, communicates with parents, trains staff, and ensures athlete progress reports are submitted consistently. The Tumbling Director provides clear direction to parents on leveling up in classes and submits all level-up requests to the Program Director for final approval.",
+    sections: [
+      {
+        title: "DAILY TO DO",
+        items: [
+          "Run assigned tumbling classes",
+          "Ensure coaches are executing the approved curriculum on the floor",
+          "Monitor athlete safety and technique standards",
+          "Respond to parent inquiries regarding tumbling classes",
+          "Ensure attendance is taken for all tumbling classes",
+        ],
+      },
+      {
+        title: "WEEKLY TO DO",
+        items: [
+          "Attend Director-level strategy meeting — know class metrics and attendance",
+          "Review athlete progress across all tumbling classes",
+          "Ensure all tumbling staff submit athlete progress reports",
+          "Submit weekly class attendance and performance summary to Program Director",
+          "Identify athletes ready for level-up and prepare requests for Program Director",
+        ],
+      },
+      {
+        title: "MONTHLY TO DO",
+        items: [
+          "Submit full attendance and progression report to Program Director",
+          "Review curriculum effectiveness and update as needed",
+          "Meet with tumbling staff to address performance and consistency",
+          "Communicate with parents regarding athlete progression and next steps",
+        ],
+      },
+      {
+        title: "ADDITIONAL RESPONSIBILITIES",
+        items: [
+          "Train and develop tumbling coaching staff",
+          "Create and maintain parent-facing materials explaining class levels and progression",
+          "Submit all athlete level-up requests to Program Director for approval",
+          "Ensure all staff are consistently submitting athlete progress reports",
+          "Develop new curriculum material and present to Program Director for approval",
+        ],
+      },
+    ],
+    owns: [
+      "Running and overseeing all tumbling classes",
+      "Managing tumbling coaching staff day-to-day",
+      "Communicating with parents about athlete progress and class expectations",
+      "Ensuring all staff submit athlete progress reports on time",
+      "Identifying athletes ready for level-up and preparing requests",
+      "Submitting weekly attendance and progression reports to Program Director",
+      "Training tumbling staff on curriculum and technique standards",
+    ],
+    requires: [
+      "All athlete level-up approvals (must be submitted to Program Director)",
+      "Any changes to the tumbling curriculum or class structure",
+      "Hiring, firing, or formal disciplinary action involving tumbling staff",
+      "Creating new parent-facing materials or communications at program level",
+      "Any financial commitments or equipment purchases",
+    ],
+    requiresLabel: "REQUIRES PROGRAM DIRECTOR APPROVAL — DO NOT PROCEED WITHOUT IT",
+  },
+  {
+    id: "flyer-flex-director",
+    title: "FLYER FLEX DIRECTOR",
+    subtitle: "Flexibility Instruction · Attendance · Curriculum Support · Communication",
+    color: RED,
+    description:
+      "The Flyer Flex Director teaches flexibility classes for Cheer Florida, tracks attendance, and keeps the coaching staff and All-Star Director informed of absences. This role also contributes to improving the Flyer Flex curriculum under the direction of the Program Director.",
+    sections: [
+      {
+        title: "DAILY TO DO",
+        items: [
+          "Teach assigned Flyer Flex classes",
+          "Take attendance at every class",
+          "Notify All-Star Director and relevant coaches of any absences same day",
+          "Monitor athlete flexibility progress and technique",
+          "Ensure a safe and productive class environment",
+          "Communicate any recurring attendance issues to All-Star Director",
+        ],
+      },
+      {
+        title: "WEEKLY TO DO",
+        items: [
+          "Attend Director-level strategy meeting — know class numbers and attendance",
+          "Submit weekly attendance report to All-Star Director and Program Director",
+          "Review athlete progress and identify areas for curriculum improvement",
+        ],
+      },
+      {
+        title: "MONTHLY TO DO",
+        items: [
+          "Submit full monthly attendance summary to Program Director",
+          "Review and assess curriculum effectiveness",
+          "Provide feedback on athlete flexibility improvements to coaching staff",
+        ],
+      },
+    ],
+    owns: [
+      "Teaching and managing all Flyer Flex classes",
+      "Taking and submitting attendance for every class",
+      "Notifying All-Star Director and coaches of absences same day",
+      "Monitoring athlete flexibility progress",
+      "Submitting weekly and monthly attendance reports",
+      "Contributing curriculum improvement ideas to Program Director",
+    ],
+    requires: [
+      "Any changes to the Flyer Flex curriculum or class structure",
+      "Adding or removing athletes from classes",
+      "Any parent communications beyond individual class updates",
+      "Financial commitments or equipment purchases",
+      "Hiring, firing, or disciplinary action involving any staff",
+    ],
+    requiresLabel: "REQUIRES PROGRAM DIRECTOR APPROVAL — DO NOT PROCEED WITHOUT IT",
+  },
+  {
+    id: "team-coach",
+    title: "TEAM COACH",
+    subtitle: "Athlete Development · Routine Execution · Professionalism · Compliance",
+    color: NAVY,
+    description:
+      "The Team Coach is responsible for executing approved practice plans, developing athletes, enforcing program culture, and managing team communication and competition readiness. Team Coaches report to the All-Star Director and operate within the systems set by the Program Director.",
+    sections: [
+      {
+        title: "DAILY TO DO",
+        items: [
+          "Execute the Program Director-approved practice plan — no deviations without ASD approval",
+          "Take attendance and submit to All-Star Director same day",
+          "Enforce practice attire, behavior, and professionalism standards",
+          "Submit end-of-day report to All-Star Director following each practice",
+          "Full-outs are mandatory and must be run regularly once routines are set",
+        ],
+      },
+      {
+        title: "WEEKLY TO DO",
+        items: [
+          "Submit practice plan to All-Star Director for review prior to practice",
+          "Track and document athlete skill progress in team binder",
+          "Communicate with parents regarding team matters and attendance",
+          "Attend Director-level strategy meeting when required",
+        ],
+      },
+      {
+        title: "MONTHLY TO DO",
+        items: [
+          "Submit monthly team performance summary to All-Star Director",
+          "Review athlete development and flag any progression concerns to ASD",
+          "Participate in monthly staff meeting — required attendance",
+        ],
+      },
+      {
+        title: "COMPETITION REQUIREMENTS",
+        items: [
+          "Arrive at all competitions on time — leaving early or arriving late is not permitted without Program Director approval",
+          "Ensure all athletes are competition-ready: uniforms, hair, makeup, and compliance",
+          "Confirm all legality videos are submitted and up to date before competition",
+          "Maintain professional conduct at all competitions — you represent Cheer Florida",
+        ],
+      },
+    ],
+    owns: [
+      "Day-to-day coaching and athlete instruction during your assigned practice times",
+      "Enforcing practice attire, behavior, and professionalism standards on the floor",
+      "Direct communication with your athletes and their parents regarding team matters",
+      "Documenting attendance, skill progress, and team notes in your team binder",
+      "Teaching technique and conditioning within the approved practice plan",
+      "First-level corrections and accountability for athlete behavior during practice",
+    ],
+    requires: [
+      "Any changes to the approved practice plan or routine structure",
+      "Athlete skill progressions or level-up decisions",
+      "Attendance exceptions or decisions to excuse an absence",
+      "Any formal communication to parents regarding athlete placement or team changes",
+      "Disciplinary actions beyond a verbal correction",
+      "Committing to any outside training, privates, or events on behalf of the gym",
+      "Leaving competition early or arriving late for any reason",
+    ],
+    requiresLabel: "REQUIRES ALL-STAR DIRECTOR OR PROGRAM DIRECTOR APPROVAL — DO NOT PROCEED WITHOUT IT",
+  },
+  {
+    id: "class-coach",
+    title: "CLASS COACH",
+    subtitle: "Tumbling · Flexibility · Jumps · Specialty Classes · Curriculum Execution",
+    color: RED,
+    description:
+      "The Class Coach is responsible for teaching and managing all assigned specialty classes including Tumbling, Flyer Flex, Jump Class, and any other specialty program class. Class Coaches execute the curriculum developed and approved by the Program Director and the relevant program director. Do not progress an athlete until they are absolutely ready.",
+    sections: [
+      {
+        title: "CLASS RESPONSIBILITIES",
+        items: [
+          "Arrive on time and remain present for the full duration of every class",
+          "Execute the approved class curriculum — no deviations without director approval",
+          "Prioritize technique above all else — do not rush progressions",
+          "Enforce proper class attire, hair up, no jewelry, and no gum",
+          "Take accurate attendance at every class and submit to director same day",
+          "Ensure no athlete is left alone at the gym after class",
+          "Maintain conditioning boards and ensure athletes complete conditioning after privates",
+        ],
+      },
+      {
+        title: "ATHLETE PROGRESSION & REPORTING",
+        items: [
+          "Track and document each athlete's skill progression in their progress report",
+          "Submit athlete progress reports on the schedule set by the program director",
+          "Do not recommend a level-up without documented evidence of readiness",
+          "All level-up requests must be submitted to the Program Director for approval",
+          "Set clear, honest expectations with parents regarding athlete progression timelines",
+          "Notify director immediately of any injury, behavioral issue, or safety concern",
+        ],
+      },
+      {
+        title: "PARENT COMMUNICATION",
+        items: [
+          "Maintain professional communication with all class parents",
+          "Have all parent contact information on file for your assigned classes",
+          "Communicate attendance concerns, skill updates, and any issues directly to parents",
+          "Do not discuss athlete placement, level changes, or program policy with parents — escalate to director",
+          "Maintain strictly professional relationships with all athletes at all times",
+          "Do not offer rides to athletes under any circumstances",
+        ],
+      },
+    ],
+    owns: [
+      "Teaching and instructing athletes within the approved class curriculum",
+      "Enforcing class attire, behavior, and professionalism standards",
+      "Taking and submitting attendance for every class",
+      "Documenting athlete skill progress and reporting to your director",
+      "Direct communication with class parents regarding attendance and general updates",
+      "First-level corrections and accountability for athlete behavior during class",
+    ],
+    requires: [
+      "Any changes to the approved class curriculum or progression structure",
+      "Athlete level-up or level-down recommendations (must be submitted formally)",
+      "Attendance exceptions or excused absences",
+      "Any formal communication to parents regarding placement or program policy",
+      "Disciplinary actions beyond a verbal correction",
+      "Committing to outside training or events on behalf of the gym",
+    ],
+    requiresLabel: "REQUIRES DIRECTOR OR PROGRAM DIRECTOR APPROVAL — DO NOT PROCEED WITHOUT IT",
+  },
+  {
+    id: "events-director",
+    title: "DIRECTOR OF EVENTS, CAMPS & FUN",
+    subtitle: "Camps · Pre-Team · Events · New Program Development",
+    color: NAVY,
+    description:
+      "The Director of Events, Camps & Fun is responsible for the planning, staffing, execution, and marketing of all out-of-school activity camps and special events at Cheer Florida, including Summer Camp, Winter Break Camp, and Spring Break Camp. This role also owns both sessions of the Pre-Team program, leads Kids Night Out events, and is responsible for developing and launching two new programs: Mommy & Me and Home School / Open Gym.",
+    sections: [
+      {
+        title: "CAMPS — PLANNING & OPERATIONS",
+        items: [
+          "Oversee Summer Camp — full planning, staffing, scheduling, and daily operations",
+          "Plan and schedule Winter Break Camp, Spring Break Camp, and any school day-off camps",
+          "Develop the full camp schedule, themed activities, and daily programming for each camp",
+          "Set and manage the camp budget — submit to Gym Manager and Gym Owners for approval",
+          "Recruit, hire, and assign camp staff — all hiring submitted to Program Director for approval",
+          "Take and submit daily attendance for all campers; submit daily recap report to Gym Manager",
+        ],
+      },
+      {
+        title: "PRE-TEAM PROGRAM — OWNERSHIP",
+        items: [
+          "Oversee both sessions of the Pre-Team program (10-week class sessions)",
+          "Pre-Team teaches a routine and performs at a showcase at the end of each 10-week session",
+          "Manage all Pre-Team scheduling, staffing, and daily operations",
+          "Oversee athlete enrollment, parent communication, and retention for Pre-Team",
+          "Ensure all Pre-Team athletes are prepared and ready for the end-of-session showcase",
+          "Submit Pre-Team attendance and progress reports to Program Director",
+        ],
+      },
+      {
+        title: "KIDS NIGHT OUT & SPECIAL EVENTS",
+        items: [
+          "Plan and execute a minimum of 8 Kids Night Out events per 11/12-month season",
+          "Develop themes, activities, and programming for each Kids Night Out",
+          "Manage staffing, registration, and parent communication for each event",
+          "Market each Kids Night Out through social media, email, and gym communications",
+          "Submit event recap and attendance report to Gym Manager after each event",
+        ],
+      },
+      {
+        title: "NEW PROGRAMS — MOMMY & ME / HOME SCHOOL",
+        items: [
+          "Develop and launch the Mommy & Me program from the ground up",
+          "Build curriculum, class structure, and age-appropriate programming",
+          "Develop and launch Home School classes and Open Gym programming",
+          "Lead marketing efforts targeting the home school community",
+          "Track attendance, growth, and feedback; report monthly to Program Director",
+        ],
+      },
+    ],
+    owns: [
+      "Day-to-day camp operations, daily schedule management, and staff direction during camps",
+      "Full ownership of both Pre-Team program sessions — scheduling, operations, parent communication",
+      "Planning and execution of all Kids Night Out events (minimum 8 per season)",
+      "Daily attendance tracking and parent communication for camps, Pre-Team, and events",
+      "Marketing and promotional efforts for camps, Pre-Team, Kids Night Out, and new programs",
+      "Development and launch planning for Mommy & Me and Home School / Open Gym programs",
+    ],
+    requires: [
+      "All staff hiring, firing, or disciplinary actions",
+      "Camp, Pre-Team, and new program budget approvals and any financial commitments",
+      "New program launch — curriculum, pricing, and schedule must be approved",
+      "Any changes to the approved camp or Pre-Team schedule or programming structure",
+      "Any communication that affects the gym brand or program reputation",
+      "Enrollment pricing, discounts, or refund decisions",
+    ],
+    requiresLabel: "REQUIRES GYM MANAGER OR PROGRAM DIRECTOR APPROVAL — DO NOT PROCEED WITHOUT IT",
   },
 ];
 
 const hierarchy = [
-  { level: "1", label: "OWNERSHIP", role: "Gym Owners", desc: "Final financial decisions, facility, business strategy. GTM Director & Admin Manager report here." },
-  { level: "2", label: "EXECUTIVE", role: "GTM Director", desc: "Program vision, growth, all hiring/firing, systems, KPIs, final approval on all operations." },
-  { level: "3A", label: "OPERATIONS", role: "All-Star Director", desc: "Daily practice execution, coach management, parent communication, team readiness." },
-  { level: "3B", label: "OPERATIONS", role: "Tumbling Director", desc: "Tumbling curriculum execution, athlete progression tracking, tumbling class management." },
-  { level: "4", label: "ADMIN", role: "Admin Manager", desc: "Front desk, billing, registration, customer service, facility coordination." },
-  { level: "5", label: "STAFF", role: "All-Star Coaches", desc: "Execute practice plans, athlete development, adhere to program systems." },
-  { level: "5", label: "STAFF", role: "Tumbling Coaches", desc: "Execute tumbling curriculum, track athlete progress, adhere to program standards." },
+  { level: "1", tier: "OWNERSHIP", role: "Gym Owners", responsibilities: "Final financial decisions, salary approvals, facility, business strategy." },
+  { level: "2", tier: "EXECUTIVE", role: "Director of Program Development & Operations", responsibilities: "Full operational authority: systems, hiring recommendations, KPIs, all program decisions, final operational say." },
+  { level: "3", tier: "ADMIN", role: "Gym Manager", responsibilities: "Scheduling, gym communications, pro-shop operations, front desk, coaches assigned teams." },
+  { level: "4", tier: "OPERATIONS", role: "All-Star Director", responsibilities: "Floor execution, athlete rostering, routine legality, practice plan input, USASF compliance, parent communication." },
+  { level: "4", tier: "OPERATIONS", role: "Tumbling Director", responsibilities: "Tumbling curriculum, staff management, athlete progression, parent communication, level-up requests to Program Director." },
+  { level: "4", tier: "OPERATIONS", role: "Flyer Flex Director", responsibilities: "Flexibility instruction, attendance tracking, absence reporting to ASD and coaches, curriculum input." },
+  { level: "4", tier: "OPERATIONS", role: "Director of Events, Camps & Fun", responsibilities: "Camps, Pre-Team program, Kids Night Out, Mommy & Me, Home School/Open Gym development." },
+  { level: "5", tier: "STAFF", role: "Team Coaches", responsibilities: "Execute approved practice plans, develop athletes, enforce program culture, manage team communication and competition readiness." },
+  { level: "5", tier: "STAFF", role: "Class Coaches", responsibilities: "Teach tumbling, flexibility, jumps, and specialty classes; track athlete progression, take attendance, report to program director." },
 ];
 
-const commFlow = [
-  { direction: "Information Flows DOWN", path: "GTM Director → All-Star Director / Tumbling Director → Coaches → Athletes", note: "GTM Director sets systems. Directors train coaches. Coaches execute daily." },
-  { direction: "Escalation Flows UP", path: "Athletes/Parents → All-Star Director → GTM Director (if unresolved)", note: "Day-to-day issues stay with All-Star Director. Structural or policy issues go to GTM Director." },
-  { direction: "Staff Questions", path: "Coaches → All-Star Director → GTM Director (if needed)", note: "Coaches do NOT bypass the All-Star Director to reach the GTM Director for routine matters." },
-];
-
-// ── Components ────────────────────────────────────────────────────────────────
-
-function RoleCard({ role }: { role: typeof roles[0] }) {
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
+function RoleCard({ role }: { role: (typeof roles)[0] }) {
+  const [expanded, setExpanded] = useState(false);
   const [showBoundaries, setShowBoundaries] = useState(false);
 
-  const toggle = (title: string) =>
-    setOpenSections((prev) => ({ ...prev, [title]: !prev[title] }));
-
   return (
-    <section id={role.id} className="mb-16">
-      {/* Role header */}
-      <div className="border-l-4 border-[#C8102E] pl-6 mb-6">
-        <div className="flex items-center gap-3 mb-1">
-          <span className="text-xs font-mono text-[#C9A84C] tracking-widest uppercase">{role.code}</span>
+    <div id={role.id} className="mb-6 border border-white/10 bg-white/[0.03] rounded-sm overflow-hidden">
+      <div
+        className="px-6 py-5 cursor-pointer flex items-start justify-between gap-4"
+        style={{ borderLeft: `4px solid ${role.color}` }}
+        onClick={() => setExpanded(!expanded)}
+      >
+        <div className="flex-1 min-w-0">
+          <p className="text-xs tracking-[0.18em] mb-1 font-mono" style={{ color: role.color }}>
+            {role.subtitle}
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-wider text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            {role.title}
+          </h2>
         </div>
-        <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide mb-2">{role.title}</h2>
-        <p className="text-sm text-[#C9A84C] tracking-wider uppercase font-medium">{role.subtitle}</p>
+        <div className="flex-shrink-0 mt-1">
+          {expanded ? <ChevronUp className="text-white/40 w-5 h-5" /> : <ChevronDown className="text-white/40 w-5 h-5" />}
+        </div>
       </div>
 
-      {/* Overview */}
-      <div className="bg-[#0D1B2A] border border-[#1E3A5F] rounded-sm p-6 mb-6">
-        <p className="text-gray-300 leading-relaxed text-sm">{role.overview}</p>
-        <div className="mt-4 pt-4 border-t border-[#1E3A5F]">
-          <p className="text-[#C8102E] font-semibold italic text-sm">"{role.tagline}"</p>
-        </div>
-      </div>
-
-      {/* Duty sections */}
-      <div className="space-y-2 mb-6">
-        {role.sections.map((section) => (
-          <div key={section.title} className="border border-[#1E3A5F] rounded-sm overflow-hidden">
-            <button
-              onClick={() => toggle(section.title)}
-              className="w-full flex items-center justify-between px-5 py-3 bg-[#0D1B2A] hover:bg-[#112236] transition-colors"
-            >
-              <span className="text-xs font-mono tracking-widest text-[#C9A84C] uppercase">{section.title}</span>
-              {openSections[section.title] ? (
-                <ChevronUp className="w-4 h-4 text-[#C9A84C]" />
-              ) : (
-                <ChevronDown className="w-4 h-4 text-[#C9A84C]" />
-              )}
-            </button>
-            {openSections[section.title] && (
-              <div className="px-5 py-4 bg-[#071220] border-t border-[#1E3A5F]">
+      {expanded && (
+        <div className="px-6 pb-6">
+          <p className="text-sm text-white/60 leading-relaxed mb-6 border-l-2 border-white/10 pl-4">
+            {role.description}
+          </p>
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {role.sections.map((section) => (
+              <div key={section.title}>
+                <h3 className="text-xs tracking-[0.15em] font-semibold mb-3 pb-2 border-b border-white/10 font-mono" style={{ color: role.color }}>
+                  {section.title}
+                </h3>
                 <ul className="space-y-2">
                   {section.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-gray-300">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C8102E] shrink-0" />
+                    <li key={i} className="flex gap-2 text-sm text-white/70 leading-relaxed">
+                      <span className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full bg-white/30" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            )}
+            ))}
           </div>
-        ))}
-      </div>
 
-      {/* Authority & Boundaries toggle */}
-      <button
-        onClick={() => setShowBoundaries(!showBoundaries)}
-        className="flex items-center gap-2 text-xs font-mono tracking-widest text-white uppercase border border-[#C8102E] px-4 py-2 hover:bg-[#C8102E]/10 transition-colors rounded-sm mb-4"
-      >
-        {showBoundaries ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-        Authority & Boundaries
-      </button>
+          <button
+            onClick={() => setShowBoundaries(!showBoundaries)}
+            className="text-xs tracking-[0.15em] px-4 py-2 border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors rounded-sm font-mono"
+          >
+            {showBoundaries ? "HIDE" : "VIEW"} AUTHORITY & BOUNDARIES
+          </button>
 
-      {showBoundaries && (
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="border border-emerald-800 rounded-sm overflow-hidden">
-            <div className="bg-emerald-900/40 px-4 py-2 border-b border-emerald-800">
-              <span className="text-xs font-mono tracking-widest text-emerald-400 uppercase">✔ Full Autonomy — You Own These</span>
+          {showBoundaries && (
+            <div className="mt-4 grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-xs tracking-[0.15em] font-semibold mb-3 pb-2 border-b border-emerald-500/30 text-emerald-400 font-mono">
+                  FULL AUTONOMY — YOU OWN THESE
+                </h3>
+                <ul className="space-y-2">
+                  {role.owns.map((item, i) => (
+                    <li key={i} className="flex gap-2 text-sm text-white/70 leading-relaxed">
+                      <span className="flex-shrink-0 text-emerald-400 font-bold">✔</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {role.requires.length > 0 && (
+                <div>
+                  <h3 className="text-xs tracking-[0.15em] font-semibold mb-3 pb-2 border-b border-red-500/30 text-red-400 font-mono">
+                    {role.requiresLabel}
+                  </h3>
+                  <ul className="space-y-2">
+                    {role.requires.map((item, i) => (
+                      <li key={i} className="flex gap-2 text-sm text-white/70 leading-relaxed">
+                        <span className="flex-shrink-0 text-red-400 font-bold">✘</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-            <ul className="p-4 space-y-2">
-              {role.autonomy.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-emerald-300">
-                  <span className="mt-1 text-emerald-500 shrink-0">✔</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="border border-red-900 rounded-sm overflow-hidden">
-            <div className="bg-red-900/30 px-4 py-2 border-b border-red-900">
-              <span className="text-xs font-mono tracking-widest text-red-400 uppercase">✘ Requires Approval — Do Not Proceed Without It</span>
-            </div>
-            <ul className="p-4 space-y-2">
-              {role.approval.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-red-300">
-                  <span className="mt-1 text-red-500 shrink-0">✘</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          )}
         </div>
       )}
-    </section>
+    </div>
   );
 }
-
-// ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function CFA() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -351,169 +763,169 @@ export default function CFA() {
     setMenuOpen(false);
   };
 
+  const navItems = [
+    { label: "GYM OWNERS", id: "gym-owners" },
+    { label: "PROGRAM DIRECTOR", id: "program-director" },
+    { label: "GYM MANAGER", id: "gym-manager" },
+    { label: "ALL-STAR DIRECTOR", id: "all-star-director" },
+    { label: "TUMBLING", id: "tumbling-director" },
+    { label: "FLYER FLEX", id: "flyer-flex-director" },
+    { label: "TEAM COACH", id: "team-coach" },
+    { label: "CLASS COACH", id: "class-coach" },
+    { label: "EVENTS & CAMPS", id: "events-director" },
+    { label: "HIERARCHY", id: "hierarchy" },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#060E18] text-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-      {/* ── NAV ── */}
+    <div className="min-h-screen" style={{ background: "#0B0F1A", fontFamily: "'DM Sans', sans-serif" }}>
+      {/* Nav */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-[#060E18]/95 backdrop-blur border-b border-[#1E3A5F]" : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style={{
+          background: scrolled ? "rgba(11,15,26,0.97)" : "rgba(11,15,26,0.85)",
+          backdropFilter: "blur(12px)",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={LOGO_URL} alt="CFA Logo" className="h-10 w-auto object-contain" />
-          </div>
-          <div className="hidden md:flex items-center gap-6">
-            {roles.map((r) => (
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
+          <img src={LOGO_URL} alt="Cheer Florida" className="h-8 object-contain" />
+          <div className="hidden xl:flex items-center gap-4">
+            {navItems.map((item) => (
               <button
-                key={r.id}
-                onClick={() => scrollTo(r.id)}
-                className="text-xs font-mono tracking-widest text-gray-400 hover:text-[#C9A84C] uppercase transition-colors"
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-[10px] tracking-[0.12em] text-white/50 hover:text-white transition-colors font-mono"
               >
-                {r.title}
+                {item.label}
               </button>
             ))}
-            <button onClick={() => scrollTo("hierarchy")} className="text-xs font-mono tracking-widest text-gray-400 hover:text-[#C9A84C] uppercase transition-colors">
-              Hierarchy
-            </button>
             <a
               href={CFA_PDF_URL}
               download
-              className="flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d26] text-white text-xs font-mono tracking-widest uppercase px-4 py-2 transition-colors"
+              className="flex items-center gap-1.5 text-[10px] tracking-[0.15em] px-3 py-1.5 rounded-sm text-white transition-colors font-mono"
+              style={{ background: RED }}
             >
-              <Download className="w-3 h-3" />
-              Download PDF
+              <Download className="w-3 h-3" /> PDF
             </a>
           </div>
-          <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <button className="xl:hidden text-white/60 hover:text-white" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
         {menuOpen && (
-          <div className="md:hidden bg-[#060E18] border-t border-[#1E3A5F] px-6 py-4 space-y-3">
-            {roles.map((r) => (
-              <button key={r.id} onClick={() => scrollTo(r.id)} className="block text-xs font-mono tracking-widest text-gray-400 hover:text-[#C9A84C] uppercase">
-                {r.title}
+          <div className="xl:hidden border-t border-white/10 px-4 py-4 space-y-3" style={{ background: "rgba(11,15,26,0.98)" }}>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="block w-full text-left text-xs tracking-[0.15em] text-white/60 hover:text-white py-1 font-mono"
+              >
+                {item.label}
               </button>
             ))}
-            <button onClick={() => scrollTo("hierarchy")} className="block text-xs font-mono tracking-widest text-gray-400 hover:text-[#C9A84C] uppercase">
-              Hierarchy
-            </button>
-            <a href={CFA_PDF_URL} download className="flex items-center gap-2 bg-[#C8102E] text-white text-xs font-mono tracking-widest uppercase px-4 py-2 w-fit">
-              <Download className="w-3 h-3" />
-              Download PDF
-            </a>
           </div>
         )}
       </nav>
 
-      {/* ── HERO ── */}
-      <div className="relative h-[60vh] min-h-[400px] flex items-center overflow-hidden">
-        <img src={HERO_URL} alt="CFA Hero" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060E18] via-[#060E18]/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060E18] via-transparent to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16">
-          <div className="max-w-2xl">
-            <p className="text-xs font-mono tracking-[0.3em] text-[#C9A84C] uppercase mb-3">Internal Operations Document</p>
-            <h1 className="font-display text-5xl md:text-7xl text-white tracking-wide leading-none mb-4">
-              POSITION<br />
-              <span className="text-[#C8102E]">AGREEMENTS</span><br />
-              & HIERARCHY
-            </h1>
-            <p className="text-gray-400 text-sm max-w-md mb-8">
-              Cheer Florida All-Stars — Staff Role & Accountability Guide. This document defines the authority, responsibilities, and boundaries for each position within the program.
-            </p>
-            <a
-              href={CFA_PDF_URL}
-              download
-              className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#a50d26] text-white font-mono text-xs tracking-widest uppercase px-6 py-3 transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              Download Full Document
-            </a>
-          </div>
+      {/* Hero */}
+      <div className="relative min-h-[55vh] flex items-end pt-14 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={HERO_URL} alt="" className="w-full h-full object-cover opacity-40" />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to bottom, rgba(11,15,26,0.3) 0%, rgba(11,15,26,0.95) 100%)" }}
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 pb-14 w-full">
+          <p className="text-xs tracking-[0.3em] mb-3 text-red-400 font-mono">INTERNAL OPERATIONS DOCUMENT</p>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-wider text-white leading-none mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            PROGRAM RESPONSIBILITIES
+          </h1>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-wider leading-none mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif", color: RED }}>
+            & HIERARCHY
+          </h1>
+          <p className="text-white/50 text-sm mb-6">Cheer Florida All-Star Program — Staff Role & Accountability Guide</p>
+          <a
+            href={CFA_PDF_URL}
+            download
+            className="inline-flex items-center gap-2 text-xs tracking-[0.15em] px-5 py-2.5 text-white rounded-sm font-mono"
+            style={{ background: RED }}
+          >
+            <Download className="w-3.5 h-3.5" /> DOWNLOAD FULL DOCUMENT (PDF)
+          </a>
         </div>
       </div>
 
-      {/* ── MAIN CONTENT ── */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* Role cards */}
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="border-l-4 pl-6 py-2 mb-12" style={{ borderColor: RED }}>
+          <p className="text-xs tracking-[0.2em] mb-2 font-mono" style={{ color: RED }}>DOCUMENT PURPOSE</p>
+          <p className="text-white/60 text-sm leading-relaxed max-w-3xl">
+            This document defines the position agreements, role responsibilities, authority boundaries, and organizational hierarchy for Cheer Florida All-Star Program. Every staff member is expected to know their role, operate within their defined authority, and execute the systems established by program leadership. This is not a suggestion guide — it is the operational standard.
+          </p>
+        </div>
+
         {roles.map((role) => (
           <RoleCard key={role.id} role={role} />
         ))}
 
-        {/* Hierarchy */}
-        <section id="hierarchy" className="mb-16">
-          <div className="border-l-4 border-[#C9A84C] pl-6 mb-8">
-            <p className="text-xs font-mono text-[#C9A84C] tracking-widest uppercase mb-1">Structure</p>
-            <h2 className="font-display text-4xl md:text-5xl text-white tracking-wide">PROGRAM HIERARCHY</h2>
-          </div>
+        {/* Hierarchy Table */}
+        <div id="hierarchy" className="mt-16 mb-8">
+          <p className="text-xs tracking-[0.3em] mb-2 font-mono" style={{ color: RED }}>PROGRAM STRUCTURE</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-wider text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            PROGRAM HIERARCHY & COMMUNICATION FLOW
+          </h2>
+          <p className="text-white/40 text-sm mb-8">Reporting Structure · Decision Authority · Escalation Paths</p>
 
-          <div className="overflow-x-auto mb-10">
+          <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
               <thead>
-                <tr className="bg-[#C9A84C]">
-                  <th className="text-left px-4 py-3 text-[#0D1B2A] font-mono text-xs tracking-widest uppercase">Level</th>
-                  <th className="text-left px-4 py-3 text-[#0D1B2A] font-mono text-xs tracking-widest uppercase">Role</th>
-                  <th className="text-left px-4 py-3 text-[#0D1B2A] font-mono text-xs tracking-widest uppercase">Core Responsibilities</th>
+                <tr style={{ background: RED }}>
+                  <th className="px-4 py-3 text-left text-white text-xs tracking-[0.15em] font-mono">LEVEL</th>
+                  <th className="px-4 py-3 text-left text-white text-xs tracking-[0.15em] font-mono">TIER</th>
+                  <th className="px-4 py-3 text-left text-white text-xs tracking-[0.15em] font-mono">ROLE</th>
+                  <th className="px-4 py-3 text-left text-white text-xs tracking-[0.15em] font-mono">CORE RESPONSIBILITIES</th>
                 </tr>
               </thead>
               <tbody>
                 {hierarchy.map((row, i) => (
                   <tr
                     key={i}
-                    className={`border-b border-[#1E3A5F] ${i % 2 === 0 ? "bg-[#0D1B2A]" : "bg-[#071220]"}`}
+                    style={{
+                      background: i % 2 === 0 ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.06)",
+                      borderBottom: "1px solid rgba(255,255,255,0.06)",
+                    }}
                   >
+                    <td className="px-4 py-4 font-bold text-white text-lg" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{row.level}</td>
                     <td className="px-4 py-4">
-                      <div className="text-white font-bold text-sm">{row.level}</div>
-                      <div className="text-[#C9A84C] text-xs font-mono tracking-wider mt-0.5">{row.label}</div>
+                      <span className="text-[10px] tracking-[0.15em] px-2 py-1 rounded-sm font-mono" style={{ background: "rgba(185,28,28,0.2)", color: "#F87171" }}>
+                        {row.tier}
+                      </span>
                     </td>
-                    <td className="px-4 py-4 text-white font-semibold">{row.role}</td>
-                    <td className="px-4 py-4 text-gray-400 leading-relaxed">{row.desc}</td>
+                    <td className="px-4 py-4 font-semibold text-white">{row.role}</td>
+                    <td className="px-4 py-4 text-white/60 leading-relaxed">{row.responsibilities}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          {/* Communication Flow */}
-          <div className="border-l-4 border-[#C9A84C] pl-6 mb-6">
-            <h3 className="font-display text-3xl text-white tracking-wide">COMMUNICATION FLOW</h3>
-          </div>
-          <div className="space-y-3 mb-8">
-            {commFlow.map((row, i) => (
-              <div key={i} className={`grid md:grid-cols-3 gap-4 p-4 border border-[#1E3A5F] rounded-sm ${i % 2 === 0 ? "bg-[#0D1B2A]" : "bg-[#071220]"}`}>
-                <div className="text-[#C9A84C] font-semibold text-sm">{row.direction}</div>
-                <div className="text-white text-sm">{row.path}</div>
-                <div className="text-gray-400 text-sm italic">{row.note}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* Golden Rule */}
-          <div className="bg-[#0D1B2A] border border-[#C9A84C] p-6 text-center">
-            <p className="text-white font-semibold text-base leading-relaxed">
-              THE GOLDEN RULE: The GTM Director has final say on all decisions. The All-Star Director runs the floor. Coaches execute the plan. Everyone works within the system.
+          <div className="mt-10 border border-white/10 bg-white/[0.03] p-6 rounded-sm">
+            <p className="text-xs tracking-[0.2em] mb-3 font-mono" style={{ color: RED }}>COMMUNICATION FLOW</p>
+            <p className="text-white/70 text-sm leading-relaxed">
+              <span className="text-white font-semibold">THE RULE:</span> Gym Owners hold final financial authority. The Program Director has final operational say. Every director owns their domain. Coaches execute the plan. Everyone works within the system and comes to meetings prepared.
             </p>
           </div>
-        </section>
+        </div>
       </div>
 
-      {/* ── FOOTER ── */}
-      <footer className="border-t border-[#1E3A5F] py-8">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={LOGO_URL} alt="CFA Logo" className="h-8 w-auto object-contain opacity-70" />
-          <p className="text-xs font-mono text-gray-600 tracking-widest uppercase">
-            Cheer Florida All-Stars — Position Agreements & Hierarchy — Internal Document
+      {/* Footer */}
+      <footer className="border-t border-white/10 py-8 mt-8">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+          <img src={LOGO_URL} alt="Cheer Florida" className="h-7 object-contain opacity-60" />
+          <p className="text-xs text-white/30 tracking-[0.1em] font-mono">
+            CHEER FLORIDA ALL-STAR PROGRAM — CONFIDENTIAL INTERNAL DOCUMENT
           </p>
-          <a
-            href={CFA_PDF_URL}
-            download
-            className="flex items-center gap-2 text-xs font-mono text-[#C9A84C] hover:text-white tracking-widest uppercase transition-colors"
-          >
-            <Download className="w-3 h-3" />
-            Download PDF
-          </a>
         </div>
       </footer>
     </div>
