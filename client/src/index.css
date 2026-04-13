@@ -1,0 +1,152 @@
+/* ============================================================
+   WOODLANDS ELITE — TACTICAL COMMAND CENTER DESIGN SYSTEM
+   Design: Dark #0A0A0A base, Crimson #C8102E accent
+   Fonts: Bebas Neue (display), DM Sans (body), JetBrains Mono (code)
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.11 0 0);
+  --card-foreground: oklch(0.96 0 0);
+  --popover: oklch(0.11 0 0);
+  --popover-foreground: oklch(0.96 0 0);
+  --primary: oklch(0.45 0.22 25);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.15 0 0);
+  --secondary-foreground: oklch(0.85 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.55 0 0);
+  --accent: oklch(0.45 0.22 25);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.45 0.22 25);
+  --border: oklch(0.22 0 0);
+  --input: oklch(0.18 0 0);
+  --ring: oklch(0.45 0.22 25);
+  /* WE brand crimson */
+  --we-crimson: #C8102E;
+  --we-crimson-dark: #9E0C24;
+  --we-surface: #111111;
+  --we-surface-2: #1A1A1A;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1400px;
+    }
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  /* WE Section Header Bar */
+  .we-section-bar {
+    background: var(--we-crimson);
+    color: white;
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* WE Role Card */
+  .we-role-card {
+    background: var(--we-surface);
+    border-left: 3px solid var(--we-crimson);
+    transition: border-left-width 0.15s ease;
+  }
+  .we-role-card:hover {
+    border-left-width: 6px;
+  }
+
+  /* Crimson rule divider */
+  .we-rule {
+    height: 1px;
+    background: var(--we-crimson);
+    opacity: 0.4;
+  }
+
+  /* Mono label */
+  .we-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--we-crimson);
+  }
+}
+
+/* Scroll animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
