@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Download, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 
 const CFA_PDF_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663270045816/EryPe9N36963woYHYBNvb9/Cheer_Florida_Program_Responsibilities_b003fca4.pdf";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663270045816/EryPe9N36963woYHYBNvb9/Cheer_Florida_Role_Definitions_and_Hierarchy_328ffb51.pdf";
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663270045816/EryPe9N36963woYHYBNvb9/cheer_florida_logo_840125e7.png";
 const HERO_URL =
