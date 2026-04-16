@@ -237,21 +237,33 @@ const roles = [
   {
     id: "all-star-director",
     title: "ALL-STAR DIRECTOR",
-    subtitle: "Execution · Floor Operations · Staff Accountability · Half Year · Full Season Prep & Pre-Team Programs · Compliance",
+    subtitle: "Execution · Floor Operations · Staff Accountability · Half Year & Prep Program Ownership · Elite Team Support · Compliance",
     color: RED,
     description:
-      "The All-Star Director is the operational leader of the gym floor and the primary owner of the Half Year and Full Season Prep programs. This role is responsible for daily floor execution, staff accountability, athlete compliance, and the full growth, choreography, and development of the Half Year and Prep programs. The ASD ensures that the systems built by the Director of Program Development & Operations are executed with precision. The ASD coaches 3–4 teams, manages day-to-day parent and staff communication, and provides structured reports to the Director.",
+      "The All-Star Director is the operational leader of the gym floor and holds complete ownership of the Half Year and Full Season Prep programs. This role is fully responsible for the growth, choreography, development, and daily operations of those programs. The ASD also works closely alongside the Director of Program Development & Operations in the management of the elite teams — serving as a key partner in execution, staff accountability, and floor performance at the elite level. The ASD coaches 3–4 teams, manages day-to-day parent and staff communication, and provides structured reports to the Director.",
     sections: [
       {
-        title: "HALF YEAR & PREP PROGRAMS — OWNERSHIP",
+        title: "HALF YEAR & PREP PROGRAMS — COMPLETE OWNERSHIP",
         items: [
-          "Own and operate the Half Year and Full Season Prep programs end-to-end",
+          "Hold complete ownership of the Half Year and Full Season Prep programs — these programs are the ASD's domain",
           "Lead all growth, recruitment, and athlete retention for these programs",
           "Own all choreography planning, execution, and choreographer coordination",
           "Schedule all music production from the Program Director-approved vendor list",
           "Develop and implement staff training specific to these programs",
           "Manage team placements, crossovers, and roster decisions (Director approval required)",
           "Own all parent communication for athletes in these programs",
+          "Drive program culture, athlete experience, and retention within Half Year and Prep",
+        ],
+      },
+      {
+        title: "ELITE TEAM MANAGEMENT — PARTNERSHIP WITH DIRECTOR",
+        items: [
+          "Assist the Director of Program Development & Operations with the management of the elite teams",
+          "Serve as a key floor-level partner in elite team execution and staff accountability",
+          "Support the Director in monitoring elite team performance, athlete development, and competition readiness",
+          "Provide real-time floor feedback and daily reporting on elite team operations to the Director",
+          "Help implement Director-approved systems and practice structures across elite teams",
+          "Collaborate with the Director on elite team roster decisions and athlete progression (Director has final say)",
         ],
       },
       {
@@ -305,7 +317,7 @@ const roles = [
       },
     ],
     owns: [
-      "Full operational ownership of the Half Season and Show Team programs",
+      "Complete ownership of the Half Year and Full Season Prep programs — full authority over growth, operations, and culture",
       "All day-to-day floor execution, schedule management, and real-time coaching direction",
       "Staff accountability: ensuring coaches submit plans, complete reports, and follow systems",
       "First-level corrections and consequences for staff non-compliance",
